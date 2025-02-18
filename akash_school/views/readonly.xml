@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="readonly_class_section_tree" model="ir.ui.view">
+        <field name="name">class.section.readonly.tree</field>
+        <field name="model">school.student</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <tree string="Class with Section" create="0" delete="0" edit="o">
+                <field name="cls"/>
+                <field name="cls_schedule" optional="hide"/>
+                <field name="section" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="readonly_class_section_form" model="ir.ui.view">
+        <field name="name">class.section.readonly.from</field>
+        <field name="model">school.student</field>
+
+        <field name="arch" type="xml">
+            <form string="Class with Section" create="0" delete="0" edit="o">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="cls"/>
+                            <field name="cls_schedule"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="section"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_clsSec_readonly" model="ir.actions.act_window">
+        <field name="name">Read Class,Section</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[
+         Command.clear(),
+    (0, 0, {'view_mode': 'tree', 'view_id': ref('readonly_class_section_tree')}),
+    (0, 0, {'view_mode': 'form', 'view_id': ref('readonly_class_section_form')})
+]"/>
+
+
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Only Read and enjoy
+            </p>
+        </field>
+    </record>
+
+</odoo>

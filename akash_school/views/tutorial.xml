@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tutorial_tree" model="ir.ui.view">
+        <field name="name">tutorial.tree</field>
+        <field name="model">school.tutorial</field>
+        <field name="arch" type="xml">
+            <tree string="Upcoming Tutorial" >
+                 <field name="sequence" widget="handle"/>
+                 <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_Tutorial" model="ir.actions.act_window">
+        <field name="name">Tutorial Information</field>
+        <field name="res_model">school.tutorial</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Be Prepared
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+akash_school.access_school_student,access_school_student,akash_school.model_school_student,base.group_user,1,1,1,1
+akash_school.access_school_finance,access_school_finance,akash_school.model_school_finance,base.group_user,1,1,1,1
+akash_school.access_school_tutorial,access_school_tutorial,akash_school.model_school_tutorial,base.group_user,1,1,1,1
+

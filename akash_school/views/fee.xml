@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="finance_fee_tree" model="ir.ui.view">
+        <field name="name">school.finance.fee.tree</field>
+        <field name="model">school.finance</field>
+        <field name="arch" type="xml">
+            <tree string="All kinds of fee" decoration-success="state == 'confirmed'" decoration-danger="state == 'cancelled'" >
+                <field name="name"/>
+                <field name="reference"/>
+                <field name="transaction_date"/>
+                <field name="transaction_type"/>
+                <field name="amount"/>
+                <field name="payment_method"/>
+                <field name="category"/>
+                <field name="state" widget="badge"  decoration-info="state in('draft','ongoing')"
+                        decoration-success="state == 'confirmed'" decoration-danger="state == 'cancelled'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="finance_fee-form" model="ir.ui.view">
+        <field name="name">school.finance.fee.from</field>
+        <field name="model">school.finance</field>
+        <field name="arch" type="xml">
+            <form string="All kinds of fee">
+                <header>
+<!--                    <field name="state" widget="statusbar" options="{'clickable':'1'}"/>-->
+                    <button name="action_ongoing" type="object" string="Ongoing" invisible="state!='confirmed'" class="oe_highlight" />
+                    <button name="action_confirmed" type="object" string="Confirm" invisible="state!='draft'" class="oe_highlight"/>
+                    <button name="action_cancelled" type="object" string="Cancel" invisible="state=='confirmed'" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="reference"/>
+                            <field name="transaction_date"/>
+                            <field name="transaction_type"/>
+                        </group>
+                        <group>
+                            <field name="amount"/>
+                            <field name="payment_method"/>
+                            <field name="category"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fee" model="ir.actions.act_window">
+        <field name="name">Fee Management</field>
+        <field name="res_model">school.finance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Get your calculations fee right
+            </p>
+        </field>
+    </record>
+
+</odoo>

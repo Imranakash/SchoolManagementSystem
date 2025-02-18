@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_school_root"
+              name="School"
+    />
+    <menuitem id="menu_academic"
+              name="Academic Info"
+              parent="menu_school_root"
+    />
+    <menuitem id="menu_clsSec"
+              name="Class_Section"
+              parent="menu_academic"
+              action="action_clsSec"
+    />
+    <menuitem id="menu_clsSec_readonly"
+              name="view Class_Section"
+              parent="menu_academic"
+              action="action_clsSec_readonly"
+    />
+
+<!--    for finance-->
+    <menuitem id="menu_finance"
+              name="Financial Management"
+              parent="menu_school_root"
+    />
+    <menuitem id="menu_fee"
+              name="Fee Management"
+              parent="menu_finance"
+              action="action_fee"
+    />
+    <menuitem id="menu_salary"
+              name="Salary-Payroll"
+              parent="menu_finance"
+              action="action_Salary"
+              sequence="30"
+    />
+    <menuitem id="menu_tutorial"
+              name="Tutorial"
+              parent="menu_school_root"
+    />
+    <menuitem id="menu_tutorial_subject"
+              name="Subjects"
+              parent="menu_tutorial"
+              action="action_Tutorial"
+    />
+    <menuitem id="menu_tutorial_result"
+              name="Results"
+              parent="menu_tutorial"
+              action="action_Result"
+    />
+</odoo>
