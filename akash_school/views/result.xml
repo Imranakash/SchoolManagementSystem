@@ -3,9 +3,10 @@
     <!-- Tree View -->
     <record id="tutorial_result_tree" model="ir.ui.view">
         <field name="name">tutorial.result.tree</field>
-        <field name="model">school.tutorial</field>
+        <field name="model">school.result</field>
         <field name="arch" type="xml">
             <tree string="Upcoming Tutorial">
+                <field name="student_id"/>
                 <field name="name"/>
                 <field name="gpa"/>
             </tree>
@@ -15,13 +16,13 @@
     <!-- Form View -->
     <record id="tutorial_result_form" model="ir.ui.view">
         <field name="name">tutorial.result.form</field>
-        <field name="model">school.tutorial</field>
+        <field name="model">school.result</field>
         <field name="arch" type="xml">
             <form string="Tutorial Result">
                 <sheet>
                     <group>
                         <!-- Uncomment if student_id exists -->
-<!--                         <field name="student_id"/>-->
+                        <field name="student_id"/>
                         <field name="name"/>
                         <field name="gpa"/>
                     </group>
@@ -33,7 +34,7 @@
     <!-- Action -->
     <record id="action_Result" model="ir.actions.act_window">
         <field name="name">Students Result</field>
-        <field name="res_model">school.tutorial</field>
+        <field name="res_model">school.result</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

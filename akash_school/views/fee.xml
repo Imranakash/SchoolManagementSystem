@@ -42,8 +42,22 @@
                             <field name="amount"/>
                             <field name="payment_method"/>
                             <field name="category"/>
+                            <field name="total_library_fee"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Library Fee" name="library">
+                            <group>
+                                <group>
+                                    <field name="enrolled_std"/>
+                                </group>
+                                <group>
+                                    <field name="fee"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" groups="base.group_user"/>

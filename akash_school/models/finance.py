@@ -3,6 +3,8 @@ from docutils.nodes import reference
 from pkg_resources import require
 
 from odoo import api, fields, models
+from odoo.odoo.tools.populate import compute
+
 
 class SchoolFinance(models.Model):
     _name = "school.finance"
@@ -17,6 +19,9 @@ class SchoolFinance(models.Model):
         ('expense', 'Expense')
     ], string="Transaction Type", required=True)
     amount = fields.Float(string="Amount", required=True)
+    enrolled_std = fields.Many2one('school.student',string='Enrollment List')
+    fee = fields.Float(string='fee',required=True)
+    total_library_fee= fields.Float(compute='_compute_total' ,string='Total Library Fee')
     payment_method = fields.Selection([
         ('cash', 'Cash'),
         ('bank', 'Bank Transfer'),
@@ -56,6 +61,11 @@ class SchoolFinance(models.Model):
     def action_cancelled(self):
         for rec in self:
             rec.state='cancelled'
+
+    # def _compute_total(self):
+    #     for rec in self:
+    #         rec.total_library_fee=0
+
 
 
 

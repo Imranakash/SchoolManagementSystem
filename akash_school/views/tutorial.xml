@@ -4,7 +4,7 @@
         <field name="name">tutorial.tree</field>
         <field name="model">school.tutorial</field>
         <field name="arch" type="xml">
-            <tree string="Upcoming Tutorial" >
+            <tree string="Upcoming Tutorial" editable="top">
                  <field name="sequence" widget="handle"/>
                  <field name="name"/>
             </tree>
