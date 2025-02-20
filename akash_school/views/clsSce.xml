@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <tree string="Class with Section">
                 <field name="name"/>
+                <field name="reg"/>
                 <field name="cls"/>
                 <field name="cls_schedule" optional="hide"/>
                 <field name="section" optional="show"/>
@@ -24,6 +25,7 @@
                     <group>
                         <group>
                             <field name="name"/>
+                            <field name="reg"/>
                             <field name="cls"/>
                         </group>
                         <group>
@@ -32,6 +34,19 @@
                             <field name="sub_ids" widget="many2many_tags"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Address" name="address">
+                            <group>
+                                <field name="address"/>
+                            </group>
+                        </page>
+
+                        <page string="Contact Number" name="contact">
+                            <group>
+                                <field name="phn"/>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" groups="base.group_user"/>
